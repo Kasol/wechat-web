@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>kasol</title>
+  
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+    {% block header %}
+    <div class="header">
+        <nav class="navbar navbar-inverse head-bar navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand system-title" href="#">Scorpio</a>
+                </div>
+                <div>
+                   
+                    <div class="navbar-right">
+                            <p class="navbar-text">
+                                您好，{{userName}}
+                            </p>
+                              <p class="navbar-text">
+                              <a href="/logout">登出</a> 
+                              </p>
+                    </div>
+
+                     <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group search-block">
+                            <input id="searchInput" type="text" class="search-input form-control date-time-picker" placeholder="Search">
+                            <span class="iconfont icon-search3 icon"></span>>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </nav>
+    </div>
+    {% endblock %} 
+    <div class="row content">
+        <div class="col-sm-3 col-md-2 side-bar">
+            <ul>
+                <li {% if  current_side == 'portal' %} class="active" {% endif %}>
+                    <a href="/">首页</a>
+                </li>
+                <li>
+                    <a href="/frame">php页面</a>
+                </li>
+                <li>
+                    <a href="/page">页面数据</a>
+                </li>
+                <li>
+                    <a href="/file">文件数据</a>
+                </li>
+                <li>
+                    <a href="#">侧边的内容</a>
+                </li>
+                <li>
+                    <a href="#">侧边的内容</a>
+                </li>
+                <li>
+                    <a href="#">侧边的内容</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-md-10 col-md-offset-2 main">
+                <div class="container">
+                        {% block body %}
+                        {% endblock %}
+                </div>
+        </div>
+        </div>
+    </div>
+
+     {% block footer %} 
+       
+     {% endblock %}
+
+    {% block js %}{% endblock %}
+</body>
+
+</html>
+
